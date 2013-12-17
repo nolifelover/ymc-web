@@ -18,12 +18,7 @@
           <td><%= exam.code%></td>
           <td><%= exam.fullname%></td>
           <td><%= exam.school%></td>
-          <td>
-            <% if exam.level == 1 %>
-            ประถมศึกษา
-            <%else%>
-            มัธยมศึกษา
-            <%end%>
+          <td><%=display_level(exam.level) %>
           </td>
           <td><%= link_to "บัตรประจำตัวสอบ" , url_for(:exam, :print, :id => exam.id) %></td>
         </tr>

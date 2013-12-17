@@ -7,10 +7,18 @@ Ymc::App.helpers do
   # end
 
   def exam_date(level)
-  	if level == 1
+  	if level.to_i == 1
   		"21 ธันวาคม 2556"
   	else
   		"22 ธันวาคม 2556"
+  	end
+  end
+
+  def display_level(level)
+  	if level.to_i == 1
+  		"ประถมศึกษา"
+  	else
+  		"มัธยมศึกษา"
   	end
   end
 
