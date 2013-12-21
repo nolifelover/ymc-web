@@ -20,7 +20,7 @@
           <td><%= exam.school%></td>
           <td><%=display_level(exam.level) %>
           </td>
-          <td><%= link_to "บัตรประจำตัวสอบ" , url_for(:exam, :print, :id => exam.id) %></td>
+          <td><%= link_to "ผลการสอบ" , url_for(:exam, :result, :id => exam.id) %></td>
         </tr>
         <%end%>
       </tbody>

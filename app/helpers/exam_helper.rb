@@ -25,4 +25,12 @@ Ymc::App.helpers do
   def room_number(room)
   	room.gsub("ห้อง","")
   end
+
+  def dash_display(val)
+    if val.nil? || val == ""
+      return "-"
+    else
+      return val
+    end
+  end
 end

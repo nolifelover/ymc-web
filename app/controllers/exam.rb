@@ -39,4 +39,41 @@ Ymc::App.controllers :exam do
       redirect "/"
     end
   end
+
+  get :result, :with => :id, :map => "/seat/result" do
+    begin
+      @exam = ExamRoom.find(params[:id])
+      render 'exam/result.erb', :layout => false
+    rescue
+      redirect "/"
+    end
+  end
+
+  get :upload, :map => "/exam/result/uploads" do
+    if params[:admin] == "admin"
+      render 'exam/upload.html.erb'
+    else
+      redirect "/"
+    end
+  end
+
+  post :process, :map => "/exam/result/process" do
+    tempfile = params[:file][:tempfile] 
+    filename = params[:file][:filename]
+    level = params[:level]
+    f = File.open(tempfile, "r")
+    f.each_line do |line|
+      fields = line.split(',')
+      code = fields[0]
+      exam = ExamRoom.where("code=? and level=?", code, level).first()
+      if exam
+        exam.no_single = fields[1]
+        exam.score_single = fields[2]
+        exam.score_team = fields[3]
+        exam.no_team = fields[4]
+        exam.save
+      end
+    end
+    redirect "/"
+  end
 end
