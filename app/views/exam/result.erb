@@ -266,6 +266,10 @@
                                                                 <td > คะแนนทีม   <span style="padding-left:15px;">   <%=dash_display(@exam.score_team)%>    </span>   <span style="padding-left:15px;">ลำดับทีม  </span><span style="padding-left:15px;"><%=dash_display(@exam.no_team)%>  </span>                                        
                                                                 </td>
                                                             </tr>
+                                                            <tr>
+                                                                <td > ค่าเฉลี่ย  <span style="padding-left:15px;">   <%=display_mean(@exam.level)%>    </span>   <span style="padding-left:15px;"> ค่า S.D.  </span><span style="padding-left:15px;"><%=display_sd(@exam.level)%>  </span>                                        
+                                                                </td>
+                                                            </tr>
                                                         </table>                                               
                                                     </td>
                                                 </tr>                                                 

@@ -33,4 +33,20 @@ Ymc::App.helpers do
       return val
     end
   end
+
+  def display_mean(val)
+    if val.to_i == 1
+      "17.34"
+    else
+      "24.59"
+    end
+  end
+
+  def display_sd(val)
+    if val.to_i == 1
+      "13.66"
+    else
+      "16.95"
+    end
+  end
 end
